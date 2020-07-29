@@ -1,10 +1,4 @@
-package com.aes;//Copyright Popa Tiberiu 2011
-//free to use this in any way
-
-//package tsd.crypto.algoritm;
-
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
+package com.aes;
 
 public class AES {
 
@@ -79,14 +73,6 @@ public class AES {
   0xc6, 0x97, 0x35, 0x6a, 0xd4, 0xb3, 0x7d, 0xfa, 0xef, 0xc5, 0x91, 0x39, 0x72, 0xe4, 0xd3, 0xbd, 
   0x61, 0xc2, 0x9f, 0x25, 0x4a, 0x94, 0x33, 0x66, 0xcc, 0x83, 0x1d, 0x3a, 0x74, 0xe8, 0xcb };
 
- public static byte[] keygeneration() throws Exception  {
-                  
-          KeyGenerator generator = KeyGenerator.getInstance("AES");
-          generator.init(192);
-          SecretKey key = generator.generateKey();
-          return key.getEncoded();
-
- }
  
  private static byte[] xor_func(byte[] a, byte[] b) {
   byte[] out = new byte[a.length];

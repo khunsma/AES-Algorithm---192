@@ -13,9 +13,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class AesApplication extends JFrame implements ActionListener {
-    JTextField tfKey;
+    JTextField tfKey, tfHexKey;
     JLabel lForImage, lForImage1, lForImage2, lEnterHexKey;
-    JButton btnLoadImage, btnEncode, btnViewImage1, btnViewImage2, btnDecode;
+    JButton btnLoadImage, btnHex, btnEncode, btnViewImage1, btnViewImage2, btnDecode;
     JTextArea jTextArea1, jTextArea2;
     JScrollPane jScrollPane1, jScrollPane2;
 
@@ -25,12 +25,6 @@ public class AesApplication extends JFrame implements ActionListener {
 
     public AesApplication() {
 
-        try {
-            k = AES.keygeneration();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
         btnLoadImage = new JButton("Pick Image");
         btnLoadImage.setBounds(100, 50, 100, 30);
         add(btnLoadImage);
@@ -39,13 +33,23 @@ public class AesApplication extends JFrame implements ActionListener {
         lForImage.setBounds(50, 100, 200, 150);
         add(lForImage);
 
-        lEnterHexKey = new JLabel("Enter Keys ...");
-        lEnterHexKey.setBounds(280, 10, 200, 50);
+        lEnterHexKey = new JLabel("Enter Plain Text Keys ...");
+        lEnterHexKey.setBounds(280, 10, 250, 50);
         add(lEnterHexKey);
 
         tfKey = new JTextField();
-        tfKey.setBounds(260, 50, 140, 30);
+        tfKey.setBounds(260, 50, 200, 30);
         add(tfKey);
+
+        btnHex = new JButton("Hex >>");
+        btnHex.setBounds(480, 50, 100, 30);
+        add(btnHex);
+        btnHex.setEnabled(false);
+
+        tfHexKey = new JTextField("");
+        tfHexKey.setBounds(600, 50, 300, 30);
+        add(tfHexKey);
+        tfHexKey.setEditable(false);
 
         btnEncode = new JButton("Encode >>");
         btnEncode.setBounds(270, 140, 100, 30);
@@ -59,6 +63,7 @@ public class AesApplication extends JFrame implements ActionListener {
         jTextArea1.setSize(200, 150);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setEnabled(false);
 
         jScrollPane1 = new JScrollPane(jTextArea1);
         jScrollPane1.setBounds(400, 100, 200, 150);
@@ -80,6 +85,7 @@ public class AesApplication extends JFrame implements ActionListener {
         jTextArea2.setSize(200, 150);
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
+        jTextArea2.setEditable(false);
 
         jScrollPane2 = new JScrollPane(jTextArea2);
         jScrollPane2.setBounds(400, 300, 200, 150);
@@ -89,7 +95,13 @@ public class AesApplication extends JFrame implements ActionListener {
         lForImage2.setBounds(700, 300, 200, 150);
         add(lForImage2);
 
+        btnEncode.setEnabled(false);
+        btnViewImage1.setEnabled(false);
+        btnDecode.setEnabled(false);
+        btnViewImage2.setEnabled(false);
+
         btnLoadImage.addActionListener(this);
+        btnHex.addActionListener(this);
         btnEncode.addActionListener(this);
         btnViewImage1.addActionListener(this);
         btnDecode.addActionListener(this);
@@ -105,14 +117,31 @@ public class AesApplication extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnLoadImage) {
             loadImage();
+            btnHex.setEnabled(true);
+        } else if (e.getSource() == btnHex) {
+            if (tfKey.getText().trim().length() > 0) {
+                tfHexKey.setText(toHexString(tfKey.getText().trim().getBytes()));
+                btnEncode.setEnabled(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Plain text key must not be blank.");
+            }
+
         } else if (e.getSource() == btnEncode) {
-            encodeImage();
-        } else if (e.getSource() == btnViewImage1){
+            k = tfKey.getText().trim().getBytes();
+            if (isHex(tfHexKey.getText().trim()) && tfHexKey.getText().trim().length() == 48) {
+                encodeImage();
+                btnViewImage1.setEnabled(true);
+                btnDecode.setEnabled(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Key Hex value must be 54 hexadecimal digits.");
+            }
+        } else if (e.getSource() == btnViewImage1) {
             lForImage1.setIcon(ResizeImage(encodedFile.getAbsolutePath()));
 
-        }else if (e.getSource() == btnDecode) {
+        } else if (e.getSource() == btnDecode) {
             decodeImage();
-        }else if (e.getSource() == btnViewImage2){
+            btnViewImage2.setEnabled(true);
+        } else if (e.getSource() == btnViewImage2) {
             lForImage2.setIcon(ResizeImage(decodedFile.getAbsolutePath()));
         }
     }
@@ -166,7 +195,6 @@ public class AesApplication extends JFrame implements ActionListener {
             }
             encodedFile = new File("image/encryptedimage.jpg");
             FileOutputStream fos = new FileOutputStream(encodedFile);
-            System.out.println(toHexString(b1));
             fos.write(b1);
             fos.flush();
             fos.close();
@@ -181,7 +209,7 @@ public class AesApplication extends JFrame implements ActionListener {
         }
     }
 
-    private void decodeImage(){
+    private void decodeImage() {
 
         try {
             BufferedImage image = ImageIO.read(selectedFile);
@@ -225,6 +253,9 @@ public class AesApplication extends JFrame implements ActionListener {
         return str.toString();
     }
 
+    private boolean isHex(String inputData) {
+        return inputData.trim().matches("[0-9A-Fa-f]+");
+    }
 
     public static void main(String args[]) {
         new AesApplication();

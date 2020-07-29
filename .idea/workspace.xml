@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1802c360-1113-4311-b9da-3b4317d53785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/image/decryptedimage.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/encryptedimage.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/aes/AesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/aes/AesApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="1802c360-1113-4311-b9da-3b4317d53785" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,25 +51,41 @@
       <option name="presentableId" value="Default" />
       <updated>1596037957431</updated>
     </task>
+    <task id="LOCAL-00001" summary="Remove library file. Clear AES Algorithm only.">
+      <created>1596042111483</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596042111483</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Remove library file. Clear AES Algorithm only." />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove library file. Clear AES Algorithm only." />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1323" height="74" key="GridCell.Tab.0.bottom" timestamp="1596041820222">
+    <state x="261" y="0" key="CommitChangelistDialog2" timestamp="1596042110348">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="74" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596041820222" />
-    <state width="1323" height="74" key="GridCell.Tab.0.center" timestamp="1596041820222">
+    <state x="261" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1596042110348" />
+    <state width="1323" height="51" key="GridCell.Tab.0.bottom" timestamp="1596042003380">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="74" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596041820222" />
-    <state width="1323" height="74" key="GridCell.Tab.0.left" timestamp="1596041820222">
+    <state width="1323" height="51" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1596042003380" />
+    <state width="1323" height="51" key="GridCell.Tab.0.center" timestamp="1596042003379">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="74" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596041820222" />
-    <state width="1323" height="74" key="GridCell.Tab.0.right" timestamp="1596041820222">
+    <state width="1323" height="51" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1596042003379" />
+    <state width="1323" height="51" key="GridCell.Tab.0.left" timestamp="1596042003379">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="74" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596041820222" />
+    <state width="1323" height="51" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1596042003379" />
+    <state width="1323" height="51" key="GridCell.Tab.0.right" timestamp="1596042003379">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="51" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1596042003379" />
     <state width="1323" height="74" key="GridCell.Tab.1.bottom" timestamp="1596041820223">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -96,32 +108,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/aes/AesApplication.java</url>
-          <line>136</line>
+          <line>130</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/aes/AesApplication.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/aes/AesApplication.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/aes/AesApplication.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/aes/AesApplication.java</url>
-          <line>195</line>
+          <line>189</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/aes/AesApplication.java</url>
-          <line>196</line>
+          <line>190</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

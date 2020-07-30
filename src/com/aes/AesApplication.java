@@ -63,7 +63,7 @@ public class AesApplication extends JFrame implements ActionListener {
         jTextArea1.setSize(200, 150);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
+        jTextArea1.setEditable(false);
 
         jScrollPane1 = new JScrollPane(jTextArea1);
         jScrollPane1.setBounds(400, 100, 200, 150);
